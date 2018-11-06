@@ -1,0 +1,32 @@
+swagger: "2.0"
+info:
+  description: RESTfull API for Onkyo EISCP protocol
+  version: "1.0.0"
+  title: Onkyo API
+consumes:
+  - "application/json"
+produces:
+  - "application/text"
+
+basePath: "/api/v1"
+
+# Paths supported by the server application
+paths:
+  /onkyo/{command}:
+    get:
+      operationId: onkyo.runCommand
+      tags:
+        - onkyo
+      summary: runs a command
+      description: runs a command on reciever
+      parameters:
+        - name: command
+          in: path
+          description: command string
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully command execution
+          schema:
+            type: string           
